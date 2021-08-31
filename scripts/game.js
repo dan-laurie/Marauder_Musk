@@ -43,19 +43,19 @@ function init() {
     const grid = document.querySelector('.grid')
 
     // Variables
-    const width = 10
+    const width = 13
     const height = 15 // Define the width of the grid
     const cellCount = height * width// Define total cell count
     const cells = [] // Define empty array that will contain all the grid cells once created
     const livesDisplay = document.querySelector('.lives')
     const scoreDisplay = document.querySelector('.score')
     const aliensDestroyed = []
-    const aliens = [1, 2, 3, 4, 5, 6, 7, 8, 11, 12, 13, 14, 15, 16, 17, 18, 21, 22, 23, 24, 25, 26, 27, 28]
+    const aliens = [2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 16, 17, 18, 19, 20, 21, 22, 23, 28, 29, 30, 31, 32, 33, 34, 35, 36]
     
     const alienClassName = 'alien'//define the css class of the aliens
     const muskClassName = 'musk' // Define the css class for the character
     // const missileClassName = 'missile'
-    const startingPosition = 145 // Cell position for the start of the game
+    const startingPosition = 188 // Cell position for the start of the game
     
     let currentPosition = startingPosition // Current position which is updated on every move
     let indexShift = 1
@@ -72,7 +72,7 @@ function init() {
     function createGrid(startPos) {
       for (let i = 0; i < cellCount; i++) { // Loop for the length of cellCount
         const cell = document.createElement('div') // Create a div
-        // cell.innerText = i // Add index as innerText
+        cell.innerText = i // Add index as innerText
         grid.appendChild(cell) // Append cell to grid
         cells.push(cell)
       }
@@ -185,7 +185,7 @@ function init() {
       // }
 
     }
-    const alienAdvance = setInterval(mobiliseAliens, 500)
+    const alienAdvance = setInterval(mobiliseAliens, 2000)
     
     
     //this function block controls the missile being fired. I guess i'll use a similar one for the aliens dropping bombs.
@@ -193,12 +193,13 @@ function init() {
       let missileTimer = null
       let currentMissilePosition = currentPosition
       function fireMissile() {
+
         cells[currentMissilePosition].classList.remove('missile')
         currentMissilePosition -= width
-        cells[currentMissilePosition].classList.add('missile')
-      
-        if (currentMissilePosition){
-      
+        if (cells[currentMissilePosition]){
+          
+          cells[currentMissilePosition].classList.add('missile')
+
           if (cells[currentMissilePosition].classList.contains(alienClassName)){
             cells[currentMissilePosition].classList.remove('missile')
             cells[currentMissilePosition].classList.remove('alien')
@@ -211,12 +212,15 @@ function init() {
             aliensDestroyed.push(alienKilled)
             score += 100
             scoreDisplay.innerText = score
-          }
+          } 
+          
+        } else {
+          clearInterval(missileTimer)
         }
       }
       if (event.keyCode === 32){
         missileTimer = setInterval(fireMissile, 100)
-      }
+      } 
     }
     document.addEventListener('keyup', deployMissile)
 
@@ -228,31 +232,45 @@ function init() {
       let bombPosition = aliens[(Math.floor(Math.random() * aliens.length))]
       console.log(bombPosition) //logging to show random index in console.
       //now we need to define its movement
-      cells[bombPosition].classList.remove('bomb')
-      bombPosition += width //using + this time as travelling down page
-      cells[bombPosition].classList.add('bomb')
 
-      // logic to workout outcome if the bomb hits Elon
-      if (cells[bombPosition].classList.contains('musk')) {
+
+      const bombTick = setInterval(() => {
         cells[bombPosition].classList.remove('bomb')
-        cells[bombPosition].classList.add('bang')
-      }
+        bombPosition += width //using + this time as travelling down page
 
-      setTimeout(() => cells[bombPosition].classList.remove('bang'), 300)
+        if (cells[bombPosition]){
+          cells[bombPosition].classList.add('bomb')
+          console.log(cells[bombPosition])
+  
+          // logic to workout outcome if the bomb hits Elon
+          if (cells[bombPosition].classList.contains('musk')) {
+            cells[bombPosition].classList.remove('bomb')
+            cells[bombPosition].classList.add('bang')
+            clearInterval(bombTick)
+            score -= 200
+            scoreDisplay.innerText = score
+            lives -= 1
+            livesDisplay.innerText = lives
+          }
+  
+          setTimeout(() => cells[bombPosition].classList.remove('bang'), 300)
+
+        } else {
+          clearInterval(bombTick)
+        }
+      }, 600)
       
-
-      score -= 200
-      scoreDisplay.innerText = score
-      lives -= 1
-      livesDisplay.innerText = lives
     }
+      
 
     //now setting an interval so the above code block can be executed at a random delay between 500-3000ms
 
     function bombTimer() {
       const randomTime = Math.round(Math.random() * (3000 - 500)) + 500
-      setTimeout(() => bombDrop, randomTime)
+      setInterval(bombDrop, 5000)
+      console.log(randomTime)
     }
+    
     bombTimer()
 
     //   addMissile(missileStart)

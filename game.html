@@ -1,57 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles/game.css">
-  <script src="scripts/game.js"></script>
-  <script
-  src="https://kit.fontawesome.com/afbb2b57cf.js"
-  crossorigin="anonymous"
-></script>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-  href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
-  rel="stylesheet"
-/>
-  <title>Marauder Musk Game</title>
-</head>
-<body>
-  <audio
-  id="intro-beat"
-  src=""
-  loop="loop"
-></audio>
-<div class="togglemusic">
-  <p id="music-text">Music:</p>
-  <i id="mute" class="fas fa-volume-mute fa-3x"></i>
-</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/game.css" />
+    <script src="scripts/game.js"></script>
+    <script
+      src="https://kit.fontawesome.com/afbb2b57cf.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <title>Marauder Musk Game</title>
+  </head>
+  <body>
+    <!-- <div class="banner"> -->
+    <audio id="intro-beat" src="" loop="loop"></audio>
+    <div class="togglemusic">
+      <p id="music-text">Music:</p>
+      <i id="mute" class="fas fa-volume-mute fa-3x"></i>
+    </div>
+    <a href="index.html"><h1>Marauder Musk</h1></a>
+    <!-- </div> -->
 
-<div class="video">
-  <video autoplay muted loop id="stars">
-    <source src="https://i.imgur.com/vYIxP1q.mp4" type="video/mp4" />
-  </video>
-</div>
-  <a href="index.html"><h1>Marauder Musk</h1></a>
-  <div class="headers">
-    
-<button class="start-game">Start Game</button>
-<button class="reset-game">Reset Game</button>
-    <p>Current Lives:<span class="lives"></span></p>
-    <p>Score:<span class="score"></span></p>
-  </div>
+    <div class="video">
+      <video autoplay muted loop id="stars">
+        <source src="https://i.imgur.com/vYIxP1q.mp4" type="video/mp4" />
+      </video>
+    </div>
 
-  <div class="grid-pre">
-    <div class="grid-wrapper">
-  <div class="grid">
-  </div>
-  </div>
-  <main>
+    <main>
+      <div class="headers">
+        <button class="start-game">Start Game</button>
+        <button class="reset-game">Reset Game</button>
+        <p>Current Lives:<span class="lives"></span></p>
+        <p>Score:<span class="score"></span></p>
+      </div>
 
-
-  </div>
-</main>
-</body>
+      <div class="grid-pre">
+        <div class="grid-wrapper">
+          <div class="grid"></div>
+        </div>
+      </div>
+    </main>
+  </body>
 </html>
