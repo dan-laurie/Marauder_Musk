@@ -23,8 +23,11 @@ function init() {
   const resetButton = document.querySelector('.reset-game')
 
 
+  const introText = document.querySelector('.intro')
+
   //game starts here when called
   function gameStart() {
+    introText.style.display = 'none'
 
     function gameReset() {
       location.reload()
