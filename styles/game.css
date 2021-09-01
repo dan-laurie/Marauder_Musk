@@ -41,7 +41,7 @@ i:hover {
 }
 
 body {
-  min-height: 100vh;
+  max-height: 100vh;
   margin: 0;
   /* background-color: black; */
 }
@@ -58,7 +58,7 @@ video {
   position: fixed;
   top: 0;
   /* width: 100%; */
-  min-height: 100%;
+  min-height: 120%;
   /* height: 100%; */
   z-index: -1;
   margin: 0;
@@ -69,6 +69,7 @@ video {
 }
 
 h1 {
+  max-width: 100px;
   display: flex;
   top: 0;
   margin-top: 0px;
@@ -120,13 +121,41 @@ main {
   overflow: hidden;
 }
 
-/* .intro p:nth-child(2) {
+.intro p:nth-child(2) {
   animation-delay: 2s;
 }
 
 .intro p:nth-child(3) {
   animation-delay: 4s;
-} */
+}
+
+.intro p:nth-child(4) {
+  animation-delay: 6s;
+}
+
+.intro p:nth-child(5) {
+  animation-delay: 8s;
+}
+
+.intro p:nth-child(6) {
+  animation-delay: 10s;
+}
+
+.intro p:nth-child(7) {
+  animation-delay: 12s;
+}
+
+.intro p:nth-child(8) {
+  animation-delay: 14s;
+}
+
+.intro p:nth-child(9) {
+  animation-delay: 16s;
+}
+
+.intro p:nth-child(10) {
+  animation-delay: 18s;
+}
 
 .grid-wrapper {
   /* height: 50vh; */
@@ -196,17 +225,23 @@ main {
 }
 
 .bomb {
-  background-color: aqua !important;
+  background-image: url("https://i.imgur.com/blh16hw.png") !important;
   background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
+  transform: rotate(180deg);
 }
 
 .intro p {
-  animation: animated-text 4s steps(29) 1s 1 normal both,
+  animation: animated-text 7s steps(40) 1s 1 normal both,
     animated-cursor 600ms steps(29) infinite;
 }
 
+.post-game {
+  display: none;
+  margin-top: 100px;
+  text-align: center;
+}
 /* text animation */
 
 @keyframes animated-text {
@@ -214,7 +249,7 @@ main {
     width: 0;
   }
   to {
-    width: 472px;
+    width: 86%;
   }
 }
 

@@ -22,7 +22,7 @@ function init() {
   const startButton = document.querySelector('.start-game')
   const resetButton = document.querySelector('.reset-game')
 
-
+  const postGame = document.querySelector('.post-game')
   const introText = document.querySelector('.intro')
 
   //game starts here when called
@@ -31,6 +31,7 @@ function init() {
 
     function gameReset() {
       location.reload()
+      postGame.style.display = 'none'
     }
 
     function turnOffButton() {
@@ -52,6 +53,9 @@ function init() {
     const cells = [] // Define empty array that will contain all the grid cells once created
     const livesDisplay = document.querySelector('.lives')
     const scoreDisplay = document.querySelector('.score')
+    const finalScore = document.querySelector('.final-score')
+    const resultText = document.querySelector('.result')
+    const verdict = document.querySelector('.verdict')
     const aliensDestroyed = []
     const aliens = [2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 16, 17, 18, 19, 20, 21, 22, 23, 28, 29, 30, 31, 32, 33, 34, 35, 36]
     
@@ -75,7 +79,7 @@ function init() {
     function createGrid(startPos) {
       for (let i = 0; i < cellCount; i++) { // Loop for the length of cellCount
         const cell = document.createElement('div') // Create a div
-        cell.innerText = i // Add index as innerText
+        //cell.innerText = i // Add index as innerText
         grid.appendChild(cell) // Append cell to grid
         cells.push(cell)
       }
@@ -176,19 +180,20 @@ function init() {
       // function gameOver(){
         
       // }
-      if (cells[currentPosition].classList.contains(alienClassName, muskClassName)) {
-        clearInterval(alienAdvance)
-        // cells[aliens].classList.remove(alienClassName)
-        // cells[currentPosition].classList.remove(muskClassName)
-        // gameOver()
-        window.confirm('GAME OVER, YOU FAILED TO PROTECT THE COLONY')
-      } 
+      // if (cells[currentPosition].classList.contains(alienClassName, muskClassName)) {
+      //   grid.style.display = 'none'
+      //   postGame.style.display = 'block'
+      //   finalScore.innerText = `Your final score is: ${score}`
+      //   clearInterval(alienAdvance)
+      //   clearInterval(bombTick)
+      //   window.confirm('GAME OVER, YOU FAILED TO PROTECT THE COLONY')
+      // } 
       // if (gameOver()){
       //   gameReset()
       // }
 
     }
-    const alienAdvance = setInterval(mobiliseAliens, 2000)
+    const alienAdvance = setInterval(mobiliseAliens, 1000)
     
     
     //this function block controls the missile being fired. I guess i'll use a similar one for the aliens dropping bombs.
@@ -255,13 +260,46 @@ function init() {
             lives -= 1
             livesDisplay.innerText = lives
           }
+
+          //END GAME SCENARIO 1 (LOSS BY DEATH)
+          if (lives === 0){
+            grid.style.display = 'none'
+            postGame.style.display = 'block'
+            resultText.innerText = 'GAME OVER'
+            verdict.innerText = 'The Andromedans destroyed your chariot. You failed to defend Nüwa'
+            finalScore.innerText = `Your final score is: ${score}`
+            clearInterval(alienAdvance)
+            clearInterval(bombTick)
+          }
+          //END GAME SCENARIO 2 (LOSS BY INVASION)
+          if (cells[currentPosition].classList.contains(alienClassName, muskClassName)) {
+            grid.style.display = 'none'
+            postGame.style.display = 'block'
+            resultText.innerText = 'GAME OVER'
+            verdict.innerText = 'The Andromedans have invaded Nüwa'
+            finalScore.innerText = `Your final score is: ${score}`
+            clearInterval(alienAdvance)
+            clearInterval(bombTick)
+            // window.confirm('GAME OVER, YOU FAILED TO PROTECT THE COLONY')
+          } 
+          // END GAME SCENARIO 3 (VICTORY BY SUCCESSFUL DEFENSE)
+          if (aliensDestroyed.length === aliens.length) {
+            grid.style.display = 'none'
+            postGame.style.display = 'block'
+            resultText.innerText = 'VICTORY!'
+            verdict.innerText = 'You have succesfully defended Nüwa'
+            finalScore.innerText = `Your final score is: ${score}`
+            clearInterval(alienAdvance)
+            clearInterval(bombTick)
+            // window.confirm('GAME OVER, YOU FAILED TO PROTECT THE COLONY')
+          } 
   
           setTimeout(() => cells[bombPosition].classList.remove('bang'), 300)
 
         } else {
           clearInterval(bombTick)
         }
-      }, 600)
+      }, 400)
       
     }
       
@@ -270,7 +308,7 @@ function init() {
 
     function bombTimer() {
       const randomTime = Math.round(Math.random() * (3000 - 500)) + 500
-      setInterval(bombDrop, 5000)
+      setInterval(bombDrop, 1000)
       console.log(randomTime)
     }
     
@@ -278,18 +316,23 @@ function init() {
 
     // at this point we have a fully working game wohoooo!!!
     // Now we will create some end game scenarios
+    //? END GAME SCENARIOS
+    // const div = document.querySelectorAll('div')
+    // const gridWrapper = document.querySelector('.grid-wrapper')
 
-    if (lives === 0){
-      //clear grid
-      //dislay message that says you lost
-      // say reset game to start again
-    }    
+    // if (lives === 0){
+    //   //clear grid
+    //   grid.style.display = 'none'
+    //   //dislay message that says you lost
+    //   console.log('dead')
+    //   // say reset game to start again
+    // }    
 
-    if (aliens === []){
-      //clear grid
-      //dislay message that says you won
-      // say reset game to start again
-    }    
+    // if (aliens === []){
+    //   //clear grid
+    //   //dislay message that says you won
+    //   // say reset game to start again
+    // }    
 
 
 
