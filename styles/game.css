@@ -27,6 +27,7 @@ button {
   color: rgb(96, 228, 30);
   font-family: "Press Start 2P", cursive;
   background-color: black;
+  margin-right: 10px;
 }
 i {
   color: rgb(96, 228, 30);
@@ -83,13 +84,13 @@ h1 {
 .headers {
   /* margin: auto; */
   /* margin-left: 80px; */
-  margin: 0 auto;
+  /* margin: 0 auto; */
   /* margin-right: 10px; */
   display: flex;
   text-align: center;
   justify-content: space-evenly;
   flex-direction: row;
-  max-width: 900px;
+  /* max-width: 900px; */
   margin-bottom: 20px;
   /* align-content: space-between; */
 }
@@ -104,12 +105,12 @@ main {
 }
 
 .intro {
-  /* margin: 0 auto; */
+  margin: 0 auto;
   margin-top: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* max-width: 800px; */
+  max-width: 800px;
 }
 
 .intro p {
@@ -119,13 +120,13 @@ main {
   overflow: hidden;
 }
 
-.intro p:nth-child(2) {
+/* .intro p:nth-child(2) {
   animation-delay: 2s;
 }
 
 .intro p:nth-child(3) {
   animation-delay: 4s;
-}
+} */
 
 .grid-wrapper {
   /* height: 50vh; */
@@ -139,7 +140,7 @@ main {
 /* background-color: rgb(42, 138, 221); */
 /* } */
 
-/* .grid-pre{
+/* .grid-pre {
   display: flex;
   flex-wrap: wrap;
   height: 600px;
@@ -227,6 +228,7 @@ main {
     border-right-color: transparent;
   }
 }
+
 /* H1 anitmation */
 @keyframes pulse {
   0% {

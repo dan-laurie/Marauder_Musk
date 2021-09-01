@@ -276,40 +276,20 @@ function init() {
     
     bombTimer()
 
-    //   addMissile(missileStart)
+    // at this point we have a fully working game wohoooo!!!
+    // Now we will create some end game scenarios
 
+    if (lives === 0){
+      //clear grid
+      //dislay message that says you lost
+      // say reset game to start again
+    }    
 
-    // }
-
-    // document.addEventListener('keydown', deployMissile)
-  
-
-    // function addMissile(cellPosition){
-
-    //   cells[cellPosition].classList.add(missileClassName)
-
-    // }
-
-    
-    // function removeMissile(position){
-    //   cells[position].classList.remove(missileClassName)
-    // }
-    
-    // console.log(onkeyup.keyCode)
-    
-    
-    
-    
-    // we need 
-    
-    
-    // function gameOver() {
-
-    // }
-
-
-
-
+    if (aliens === []){
+      //clear grid
+      //dislay message that says you won
+      // say reset game to start again
+    }    
 
 
 
