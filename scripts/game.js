@@ -33,6 +33,7 @@ function init() {
     function gameReset() {
       location.reload()
       postGame.style.display = 'none'
+      // gameStart()
     }
 
     function turnOffButton() {
@@ -272,6 +273,8 @@ function init() {
             lives -= 1
             livesDisplay.innerText = lives
           }
+
+          //? END GAME SCENARIOS
           const missionFailed = new Audio("assets/sounds/Mission Failed we'll get em next time Sound Effect.mp3")
           //END GAME SCENARIO 1 (LOSS BY DEATH)
           if (lives === 0){
@@ -335,34 +338,6 @@ function init() {
     }
     
     bombTimer()
-
-    // at this point we have a fully working game wohoooo!!!
-    // Now we will create some end game scenarios
-    //? END GAME SCENARIOS
-    // const div = document.querySelectorAll('div')
-    // const gridWrapper = document.querySelector('.grid-wrapper')
-
-    // if (lives === 0){
-    //   //clear grid
-    //   grid.style.display = 'none'
-    //   //dislay message that says you lost
-    //   console.log('dead')
-    //   // say reset game to start again
-    // }    
-
-    // if (aliens === []){
-    //   //clear grid
-    //   //dislay message that says you won
-    //   // say reset game to start again
-    // }    
-
-
-
-
-
-
-
-
 
     createGrid(startingPosition)
     turnOffButton()
