@@ -24,14 +24,20 @@ p {
   font-family: "Press Start 2P", cursive;
 }
 button {
-  color: rgb(96, 228, 30);
+  color: rgba(96, 228, 30, 0.5);
   font-family: "Press Start 2P", cursive;
   background-color: black;
   margin-right: 10px;
+  border-radius: 10%;
+}
+button:hover {
+  color: rgb(96, 228, 30);
+  transform: scale(1.1);
+  transition: 0.5s ease-in-out;
 }
 i {
   color: rgb(96, 228, 30);
-  margin-top: 3px;
+  margin-top: 10px;
 }
 
 i:hover {
@@ -87,6 +93,7 @@ h1 {
   /* margin-left: 80px; */
   /* margin: 0 auto; */
   /* margin-right: 10px; */
+  margin-top: 20px;
   display: flex;
   text-align: center;
   justify-content: space-evenly;

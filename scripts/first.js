@@ -11,6 +11,7 @@ function init(){
     if (audio.paused) {
       event.target.classList.remove('fa-volume-mute')
       event.target.classList.add('fa-volume-up')
+      audio.volume = 0.1
       audio.play()
     } else {
       event.target.classList.remove('fa-volume-up')

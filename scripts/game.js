@@ -10,6 +10,7 @@ function init() {
     if (audio.paused) {
       event.target.classList.remove('fa-volume-mute')
       event.target.classList.add('fa-volume-up')
+      audio.volume = 0.1
       audio.play()
     } else {
       event.target.classList.remove('fa-volume-up')
@@ -210,11 +211,12 @@ function init() {
           cells[currentMissilePosition].classList.add('missile')
 
           if (cells[currentMissilePosition].classList.contains(alienClassName)){
+            alienAudio.volume = 0.1
             alienAudio.play()
             cells[currentMissilePosition].classList.remove('missile')
             cells[currentMissilePosition].classList.remove('alien')
             cells[currentMissilePosition].classList.add('bang')
-            alienAudio.play()
+            // alienAudio.play()
           
             setTimeout(() => cells[currentMissilePosition].classList.remove('bang'), 300)
             clearInterval(missileTimer)
@@ -246,6 +248,7 @@ function init() {
       console.log(bombPosition) //logging to show random index in console.
       //now we need to define its movement
       const audio = new Audio('assets/sounds/Laser Gun Sound Effect.mp3')
+      audio.volume = 0.1
       audio.play()
       const bombTick = setInterval(() => {
         
@@ -259,6 +262,7 @@ function init() {
           // logic to workout outcome if the bomb hits Elon
           const elonHit = new Audio('assets/sounds/Minecraft Damage (Oof) - Sound Effect (HD).mp3')
           if (cells[bombPosition].classList.contains('musk')) {
+            elonHit.volume = 0.1
             elonHit.play()
             cells[bombPosition].classList.remove('bomb')
             cells[bombPosition].classList.add('bang')
@@ -271,6 +275,7 @@ function init() {
           const missionFailed = new Audio("assets/sounds/Mission Failed we'll get em next time Sound Effect.mp3")
           //END GAME SCENARIO 1 (LOSS BY DEATH)
           if (lives === 0){
+            missionFailed.volume = 0.1
             missionFailed.play()
             grid.style.display = 'none'
             postGame.style.display = 'block'
@@ -283,6 +288,7 @@ function init() {
           }
           //END GAME SCENARIO 2 (LOSS BY INVASION)
           if (cells[currentPosition].classList.contains(alienClassName, muskClassName)) {
+            missionFailed.volume = 0.1
             missionFailed.play()
             grid.style.display = 'none'
             postGame.style.display = 'block'
@@ -297,6 +303,7 @@ function init() {
           // END GAME SCENARIO 3 (VICTORY BY SUCCESSFUL DEFENSE)
           const victoryFanfare = new Audio('assets/sounds/Chinese Film Administration Screen.mp3')
           if (aliensDestroyed.length === aliens.length) {
+            victoryFanfare.volume = 0.1
             victoryFanfare.play()
             grid.style.display = 'none'
             postGame.style.display = 'block'
