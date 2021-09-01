@@ -181,13 +181,9 @@ main {
 /* background-color: rgb(42, 138, 221); */
 /* } */
 
-/* .grid-pre {
-  display: flex;
-  flex-wrap: wrap;
-  height: 600px;
-  width: 600px;
-  background-color: aqua;
-} */
+.grid-pre {
+  margin-top: 50px;
+}
 
 .grid {
   display: flex;
