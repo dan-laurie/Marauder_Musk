@@ -202,6 +202,7 @@ function init() {
       let currentMissilePosition = currentPosition
       function fireMissile() {
 
+        const alienAudio = new Audio('assets/sounds/Microsoft Windows XP Error - Sound Effect (HD).mp3')
         cells[currentMissilePosition].classList.remove('missile')
         currentMissilePosition -= width
         if (cells[currentMissilePosition]){
@@ -209,9 +210,11 @@ function init() {
           cells[currentMissilePosition].classList.add('missile')
 
           if (cells[currentMissilePosition].classList.contains(alienClassName)){
+            alienAudio.play()
             cells[currentMissilePosition].classList.remove('missile')
             cells[currentMissilePosition].classList.remove('alien')
             cells[currentMissilePosition].classList.add('bang')
+            alienAudio.play()
           
             setTimeout(() => cells[currentMissilePosition].classList.remove('bang'), 300)
             clearInterval(missileTimer)
@@ -227,6 +230,8 @@ function init() {
         }
       }
       if (event.keyCode === 32){
+        // const audio = new Audio('assets/sounds/RPG FX.wav')
+        // audio.play()
         missileTimer = setInterval(fireMissile, 100)
       } 
     }
@@ -240,9 +245,10 @@ function init() {
       let bombPosition = aliens[(Math.floor(Math.random() * aliens.length))]
       console.log(bombPosition) //logging to show random index in console.
       //now we need to define its movement
-
-
+      const audio = new Audio('assets/sounds/Laser Gun Sound Effect.mp3')
+      audio.play()
       const bombTick = setInterval(() => {
+        
         cells[bombPosition].classList.remove('bomb')
         bombPosition += width //using + this time as travelling down page
 
@@ -251,7 +257,9 @@ function init() {
           console.log(cells[bombPosition])
   
           // logic to workout outcome if the bomb hits Elon
+          const elonHit = new Audio('assets/sounds/Minecraft Damage (Oof) - Sound Effect (HD).mp3')
           if (cells[bombPosition].classList.contains('musk')) {
+            elonHit.play()
             cells[bombPosition].classList.remove('bomb')
             cells[bombPosition].classList.add('bang')
             clearInterval(bombTick)
@@ -260,9 +268,10 @@ function init() {
             lives -= 1
             livesDisplay.innerText = lives
           }
-
+          const missionFailed = new Audio("assets/sounds/Mission Failed we'll get em next time Sound Effect.mp3")
           //END GAME SCENARIO 1 (LOSS BY DEATH)
           if (lives === 0){
+            missionFailed.play()
             grid.style.display = 'none'
             postGame.style.display = 'block'
             resultText.innerText = 'GAME OVER'
@@ -270,9 +279,11 @@ function init() {
             finalScore.innerText = `Your final score is: ${score}`
             clearInterval(alienAdvance)
             clearInterval(bombTick)
+            clearInterval(bombFreq)
           }
           //END GAME SCENARIO 2 (LOSS BY INVASION)
           if (cells[currentPosition].classList.contains(alienClassName, muskClassName)) {
+            missionFailed.play()
             grid.style.display = 'none'
             postGame.style.display = 'block'
             resultText.innerText = 'GAME OVER'
@@ -280,10 +291,13 @@ function init() {
             finalScore.innerText = `Your final score is: ${score}`
             clearInterval(alienAdvance)
             clearInterval(bombTick)
+            clearInterval(bombFreq)
             // window.confirm('GAME OVER, YOU FAILED TO PROTECT THE COLONY')
           } 
           // END GAME SCENARIO 3 (VICTORY BY SUCCESSFUL DEFENSE)
+          const victoryFanfare = new Audio('assets/sounds/Chinese Film Administration Screen.mp3')
           if (aliensDestroyed.length === aliens.length) {
+            victoryFanfare.play()
             grid.style.display = 'none'
             postGame.style.display = 'block'
             resultText.innerText = 'VICTORY!'
@@ -291,6 +305,7 @@ function init() {
             finalScore.innerText = `Your final score is: ${score}`
             clearInterval(alienAdvance)
             clearInterval(bombTick)
+            clearInterval(bombFreq)
             // window.confirm('GAME OVER, YOU FAILED TO PROTECT THE COLONY')
           } 
   
@@ -305,10 +320,10 @@ function init() {
       
 
     //now setting an interval so the above code block can be executed at a random delay between 500-3000ms
-
+    const bombFreq = setInterval(bombDrop, 4000)
     function bombTimer() {
       const randomTime = Math.round(Math.random() * (3000 - 500)) + 500
-      setInterval(bombDrop, 1000)
+      bombFreq
       console.log(randomTime)
     }
     

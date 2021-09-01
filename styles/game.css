@@ -159,10 +159,15 @@ main {
 
 .grid-wrapper {
   /* height: 50vh; */
-  /* background-color: black; */
+  background-image: url("https://i.imgur.com/jUP9q6P.jpg");
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: fit-content;
+  margin: 0 auto;
 }
 
 /* .gridbackdrop { */
@@ -189,8 +194,8 @@ main {
 .grid div {
   width: calc(100% / 13);
   height: 46.14px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  background-color: black;
+  /* border: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: black; */
   color: white;
 }
 
@@ -235,6 +240,9 @@ main {
 .intro p {
   animation: animated-text 7s steps(40) 1s 1 normal both,
     animated-cursor 600ms steps(29) infinite;
+  /* height: 90vh;
+  display: flex;
+  flex-direction: column; */
 }
 
 .post-game {
