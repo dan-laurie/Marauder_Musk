@@ -255,7 +255,7 @@ function init() {
       // }
 
     }
-    const alienAdvance = setInterval(mobiliseAliens, 1000)
+    const alienAdvance = setInterval(mobiliseAliens, 400)
       
       
     //this function block controls the missile being fired. I guess i'll use a similar one for the aliens dropping bombs.
@@ -390,7 +390,7 @@ function init() {
         
 
     //now setting an interval so the above code block can be executed at a random delay between 500-3000ms
-    const bombFreq = setInterval(bombDrop, 4000)
+    const bombFreq = setInterval(bombDrop, 1000)
     function bombTimer() {
       const randomTime = Math.round(Math.random() * (3000 - 500)) + 500
       bombFreq
