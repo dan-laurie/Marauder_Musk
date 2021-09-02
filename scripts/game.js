@@ -81,18 +81,18 @@ function init() {
     function createGrid(startPos) {
       for (let i = 0; i < cellCount; i++) { // Loop for the length of cellCount
         const cell = document.createElement('div') // Create a div
-        //cell.innerText = i // Add index as innerText
+        //cell.innerText = i // Add index as innerText, this was useful in early stages
         grid.appendChild(cell) // Append cell to grid
         cells.push(cell)
       }
-      addMusk(startPos) //add musk in on game start
+      addMusk(startPos) //add musk in on game start 
       addAliens(startPos)//add aliens to divs on game start
     }
 
     //add aliens
     function addAliens() {
       for (let i = 0; i < aliens.length; i++) {
-        if (!aliensDestroyed.includes(i)) //this stops re-writing the aliens once killed //?ALIENSDESTROYED is the array of the
+        if (!aliensDestroyed.includes(i)) //this stops re-writing the aliens once killed 
           cells[aliens[i]].classList.add(alienClassName)
       }
     }
