@@ -114,21 +114,21 @@ main {
 
 .intro {
   margin: 0 auto;
-  margin-top: 15px;
+  margin-top: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
   max-width: 800px;
 }
 
-.intro p {
+/* .intro p {
   line-height: 1.6;
   border-right: solid 3px rgba(0, 255, 0, 0.75);
   white-space: nowrap;
   overflow: hidden;
-}
+} */
 
-.intro p:nth-child(2) {
+/* .intro p:nth-child(2) {
   animation-delay: 2s;
 }
 
@@ -162,7 +162,7 @@ main {
 
 .intro p:nth-child(10) {
   animation-delay: 18s;
-}
+} */
 
 .grid-wrapper {
   /* height: 50vh; */
@@ -239,14 +239,12 @@ main {
   background-repeat: no-repeat;
   transform: rotate(180deg);
 }
-
+/* 
 .intro p {
   animation: animated-text 7s steps(40) 1s 1 normal both,
     animated-cursor 600ms steps(29) infinite;
-  /* height: 90vh;
-  display: flex;
-  flex-direction: column; */
-}
+
+} */
 
 .post-game {
   display: none;
@@ -255,15 +253,18 @@ main {
 }
 /* text animation */
 
-@keyframes animated-text {
+/* @keyframes animated-text {
   from {
     width: 0;
   }
   to {
-    width: 86%;
+    width: 90%;
   }
+} */
+.cursor {
+  border-right: solid 3px rgba(0, 255, 0, 0.75);
+  animation: animated-cursor 600ms steps(29) infinite;
 }
-
 /* cursor animations */
 
 @keyframes animated-cursor {

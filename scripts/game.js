@@ -24,11 +24,54 @@ function init() {
   const resetButton = document.querySelector('.reset-game')
 
   const postGame = document.querySelector('.post-game')
-  const introText = document.querySelector('.intro')
+  const introDiv = document.querySelector('.intro')
+
+  const intro = document.querySelectorAll('.intro p')
+
+  const introText = []
+
+  intro.forEach(p => {
+    introText.push(p.innerText)
+    p.innerText = ''
+    // p.classList.remove('invisible')
+  })
+
+  function startIntro(){
+    let line = 0
+    let i = 0
+    let split = introText[line].split('')
+    let introInterval = setInterval(intInterval, 50)
+    let lastWasSpace = false
+
+    function intInterval(){
+      if (split[i] && introText[line]){
+        if (split[i] === ' '){
+          lastWasSpace = true
+        } else {
+          intro[line].innerText += lastWasSpace ? ` ${ split[i]}` : split[i]
+          lastWasSpace = false
+        }
+        i++
+      } else {
+        i = 0
+        // introText[line].classList.remove('cursor')
+        line++
+        clearInterval(introInterval)
+        if (introText[line]){
+          split = introText[line].split('')
+          // introText[line].classList.add('cursor')
+          introInterval = setInterval(intInterval, 50)
+        }
+      }
+    }
+    
+  }
+
+  setTimeout(startIntro, 20)
 
   //game starts here when called
   function gameStart() {
-    introText.style.display = 'none'
+    introDiv.style.display = 'none'
 
     function gameReset() {
       location.reload()
@@ -60,12 +103,12 @@ function init() {
     const verdict = document.querySelector('.verdict')
     const aliensDestroyed = []
     const aliens = [2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 16, 17, 18, 19, 20, 21, 22, 23, 28, 29, 30, 31, 32, 33, 34, 35, 36]
-    
+      
     const alienClassName = 'alien'//define the css class of the aliens
     const muskClassName = 'musk' // Define the css class for the character
     // const missileClassName = 'missile'
     const startingPosition = 188 // Cell position for the start of the game
-    
+      
     let currentPosition = startingPosition // Current position which is updated on every move
     let indexShift = 1
     // const missileStart = currentPosition -= width
@@ -125,7 +168,7 @@ function init() {
       const key = event.keyCode // event.keyCode is the unique code for the key that was pressed
       const right = 39
       const left = 37
-      
+        
 
       if (key === right && currentPosition % width !== width - 1) {
         currentPosition++
@@ -180,7 +223,7 @@ function init() {
 
       //? IF ALIENS REACH ELON, GAME OVER, F in the chat etc......
       // function gameOver(){
-        
+          
       // }
       // if (cells[currentPosition].classList.contains(alienClassName, muskClassName)) {
       //   grid.style.display = 'none'
@@ -196,8 +239,8 @@ function init() {
 
     }
     const alienAdvance = setInterval(mobiliseAliens, 1000)
-    
-    
+      
+      
     //this function block controls the missile being fired. I guess i'll use a similar one for the aliens dropping bombs.
     function deployMissile(event){
       let missileTimer = null
@@ -208,7 +251,7 @@ function init() {
         cells[currentMissilePosition].classList.remove('missile')
         currentMissilePosition -= width
         if (cells[currentMissilePosition]){
-          
+            
           cells[currentMissilePosition].classList.add('missile')
 
           if (cells[currentMissilePosition].classList.contains(alienClassName)){
@@ -218,7 +261,7 @@ function init() {
             cells[currentMissilePosition].classList.remove('alien')
             cells[currentMissilePosition].classList.add('bang')
             // alienAudio.play()
-          
+            
             setTimeout(() => cells[currentMissilePosition].classList.remove('bang'), 300)
             clearInterval(missileTimer)
 
@@ -227,7 +270,7 @@ function init() {
             score += 100
             scoreDisplay.innerText = score
           } 
-          
+            
         } else {
           clearInterval(missileTimer)
         }
@@ -252,14 +295,14 @@ function init() {
       audio.volume = 0.1
       audio.play()
       const bombTick = setInterval(() => {
-        
+          
         cells[bombPosition].classList.remove('bomb')
         bombPosition += width //using + this time as travelling down page
 
         if (cells[bombPosition]){
           cells[bombPosition].classList.add('bomb')
           console.log(cells[bombPosition])
-  
+    
           // logic to workout outcome if the bomb hits Elon
           const elonHit = new Audio('assets/sounds/Minecraft Damage (Oof) - Sound Effect (HD).mp3')
           if (cells[bombPosition].classList.contains('musk')) {
@@ -318,16 +361,16 @@ function init() {
             clearInterval(bombFreq)
             // window.confirm('GAME OVER, YOU FAILED TO PROTECT THE COLONY')
           } 
-  
+    
           setTimeout(() => cells[bombPosition].classList.remove('bang'), 300)
 
         } else {
           clearInterval(bombTick)
         }
       }, 400)
-      
+        
     }
-      
+        
 
     //now setting an interval so the above code block can be executed at a random delay between 500-3000ms
     const bombFreq = setInterval(bombDrop, 4000)
@@ -336,7 +379,7 @@ function init() {
       bombFreq
       console.log(randomTime)
     }
-    
+
     bombTimer()
 
     createGrid(startingPosition)
@@ -345,6 +388,7 @@ function init() {
   }
 
   startButton.addEventListener('click', gameStart)
-  
+
 }
+
 document.addEventListener('DOMContentLoaded', init)
