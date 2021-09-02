@@ -28,7 +28,7 @@ button {
   font-family: "Press Start 2P", cursive;
   background-color: black;
   margin-right: 10px;
-  border-radius: 10%;
+  border-radius: 50%;
 }
 button:hover {
   color: rgb(96, 228, 30);
@@ -38,15 +38,18 @@ button:hover {
 }
 .start-game {
   display: none;
+  padding: 30px;
 }
 .reset-game {
   display: none;
 }
 .livesp {
   display: none;
+  margin-top: 30px;
 }
 .scorep {
   display: none;
+  margin-top: 30px;
 }
 .mission-brief {
   display: flex;
