@@ -35,6 +35,7 @@ Once I had decided to build a version of Space Invaders, I started planning out 
 After the planning phase was complete, I decided to start by creating the basic 'play-zone' for the game. As this is a grid based game, I needed to set a few constants such as `height`, `width` and `cellCount`.  By setting these to variables, it makes changing the size of the grid dynamic and therefore no need to re-write code. 
 
 ![the above image shows grid creation through using a ](https://i.imgur.com/biLjEog.png)
+
 The above image shows grid creation via a `for` loop.
 
 ## Day 2
@@ -44,9 +45,13 @@ The next task was to create a player and add it to an index position on the scre
 ![enter image description here](https://i.imgur.com/pfVOO07.png)
 
 In addition to this I worked on getting the character movement functional by using event listeners and key-codes. I also added in conditions so the player could only move within the boundaries of the 'play-zone', preventing our protagonist 'Marauder Musk' from escaping the grid.
+
 ![enter image description here](https://i.imgur.com/OsIy4ZO.png)
+
 Next I turned my attention to mobilising the Andromedan fleet. To achieve this, the aliens would have to move down the page at a set interval, and would do so until other conditions were met; colliding with the character.
+
 ![enter image description here](https://i.imgur.com/NBmDTSL.png)
+
 This code block also features definitions of the play-zone boundaries for the aliens, so they only move within the confines of the grid.
 
 ## Day 3
@@ -56,7 +61,9 @@ After two days of work, everything was starting to come together smoothly. As th
 In order to achieve this a used a `setInterval`which would determine the speed in which the missile would travel up the page.  The missile would start from the players current position and then travel up the page by using `-= width` which would allow the missile to jump up to the square directly above its current position. 
 
 Within this function I also added in criteria to see if a missile hit an alien. If this was the case, the alien would be removed from the grid and pushed the the `aliensDestroyed` array.  In turn, the score would be updated, rewarding the player 100 points for every elimination.
+
 ![enter image description here](https://i.imgur.com/CfwbUGw.png)  
+
 Furthermore, I also added an impact, which would disappear after 0.3s and  sound effects when each alien was hit by the projectile.
 
 I creatively decided against having sound effects for when the player fires a missile, due to the sonic atmosphere becoming polluted, and distorting the other audio samples.
@@ -67,7 +74,9 @@ Following on from player missile firing, it was now time for the Andromedans to 
 `aliens[(Math.floor(Math.random() * aliens.length))]`
 
 By using the above line of code, this generates a random index from within the alien fleet, which can be set to the lasers starting position.
+
 ![enter image description here](https://i.imgur.com/we7Gz2X.png)
+
 I used `+= width`this time in order to let the laser travel down the page . After completing the lasers movement, I decided to invoke some logic that would -200 points and take away 1 life from the player, if hit by the alien laser. 
 ## Day 5 
 By this point the game was really coming together, so I used a full day to find/solve bugs that kept appearing in the Google Chrome dev tools console. These were mainly `classList`errors, occurring because I had not cleared specific intervals. They key here was keeping track of `setInterval`'s by defining them and then using `clearInterval()`when appropriate.
@@ -76,25 +85,30 @@ By this point the game was really coming together, so I used a full day to find/
 As most of the days so far were incredibly JavaScript orientated, I decided to spend another day on CSS alone, to style my game, making it visually appealing. I gave both the landing page and game page a video as a background, depicting deep-space, to bring the immersive factor of the game on par with the functionality. 
 
 ![enter image description here](https://i.imgur.com/jHaaLpK.png)
-
-
-
  
-On the landing page, I decided to make the game title pulsate slightly, and let the picture of Marauder Musk shake from side to side. These movements were achieved through the use of CSS Animations. ![enter image description here](https://i.imgur.com/XkmoPJD.png)
+On the landing page, I decided to make the game title pulsate slightly, and let the picture of Marauder Musk shake from side to side. These movements were achieved through the use of CSS Animations. 
+
+![enter image description here](https://i.imgur.com/XkmoPJD.png)
 ![enter image description here](https://i.imgur.com/zR1zFi3.png)
+
 In addition to this, I styled the play-zone in such away that it appears more relevant to the storyline of the game.
 
 ![enter image description here](https://i.imgur.com/AFGuzhA.png)
+
 The backdrop to the play-zone now looks like we must defend Nüwa from the Andromedan attack!
 ## Day 7
 As the deadline for the game was fast approaching, I decided to implement all types of end=game scenarios using `if`statements.
+
 ![enter image description here](https://i.imgur.com/0x01dxY.png)
+
 These three scenarios were then nested within the `dropBomb`function. At this stage, I had a fully functional and styled game, but I felt there could be more features to take the user experience of the game to another level entirely. 
 ## Day 8 (Last Day)
 A lot of sound effects were  added to most of the actions that occur in the gameplay, I also added different sounds to the victory screen and both game over screens. 
 
 Another major feature I wanted to implement was an animated story/instruction page that appears when you first enter the game page. The idea was that, using JavaScript, the text could be automatically typed out in real-time, just like an old computer terminal. I also added a morse-code type sound effect for added immersion. 
+
 ![enter image description here](https://i.imgur.com/kNGOn86.png)
+
 Using the above code block, I was able to iterate over each letter, word and line, which in turn created the desired effect of a terminal typing.
 
 A favicon was also included for the tabs image for further user pleasure.
@@ -102,7 +116,9 @@ A favicon was also included for the tabs image for further user pleasure.
 ![enter image description here](https://i.imgur.com/AQ83aT4.png)
 
 The last feature I wanted on the game, was a way to toggle in game music on or off. 
+
 ![enter image description here](https://i.imgur.com/Sk9iyof.png)
+
 The above code shows, using `if else` statements that the audio could be toggled on or off. As I was also using a font awesome icon, this 'toggle' function also switch the icons class showing the speaker muted when the audio was paused and then showing a speaker expelling sound waves when the user had toggled the music on. 
 
 ## Styling
@@ -122,7 +138,7 @@ I think the biggest win of them all though was being able to work through my err
 
 ## Future Additions
 
- - Multiple levels, each one with a harder degree of difficultly .
+ - Multiple levels, each one with a harder degree of difficultly.
  - A local storage leaderboard that displays previous players highest scores.
 
 ## Key Learning Points
