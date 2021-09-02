@@ -69,10 +69,10 @@ Following on from player missile firing, it was now time for the Andromedans to 
 By using the above line of code, this generates a random index from within the alien fleet, which can be set to the lasers starting position.
 ![enter image description here](https://i.imgur.com/we7Gz2X.png)
 I used `+= width`this time in order to let the laser travel down the page . After completing the lasers movement, I decided to invoke some logic that would -200 points and take away 1 life from the player, if hit by the alien laser. 
-# Day 5 
+## Day 5 
 By this point the game was really coming together, so I used a full day to find/solve bugs that kept appearing in the Google Chrome dev tools console. These were mainly `classList`errors, occurring because I had not cleared specific intervals. They key here was keeping track of `setInterval`'s by defining them and then using `clearInterval()`when appropriate.
 
-# Day 6
+## Day 6
 As most of the days so far were incredibly JavaScript orientated, I decided to spend another day on CSS alone, to style my game, making it visually appealing. I gave both the landing page and game page a video as a background, depicting deep-space, to bring the immersive factor of the game on par with the functionality. 
 
 ![enter image description here](https://i.imgur.com/jHaaLpK.png)
@@ -86,11 +86,11 @@ In addition to this, I styled the play-zone in such away that it appears more re
 
 ![enter image description here](https://i.imgur.com/AFGuzhA.png)
 The backdrop to the play-zone now looks like we must defend Nüwa from the Andromedan attack!
-# Day 7
+## Day 7
 As the deadline for the game was fast approaching, I decided to implement all types of end=game scenarios using `if`statements.
 ![enter image description here](https://i.imgur.com/0x01dxY.png)
 These three scenarios were then nested within the `dropBomb`function. At this stage, I had a fully functional and styled game, but I felt there could be more features to take the user experience of the game to another level entirely. 
- # Day 8 (Last Day)
+## Day 8 (Last Day)
 A lot of sound effects were  added to most of the actions that occur in the gameplay, I also added different sounds to the victory screen and both game over screens. 
 
 Another major feature I wanted to implement was an animated story/instruction page that appears when you first enter the game page. The idea was that, using JavaScript, the text could be automatically typed out in real-time, just like an old computer terminal. I also added a morse-code type sound effect for added immersion. 
