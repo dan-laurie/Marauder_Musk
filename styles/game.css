@@ -1,12 +1,14 @@
 * {
   box-sizing: border-box;
 }
+
 .togglemusic {
   display: flex;
   margin-top: 15px;
   margin-left: 15px;
   justify-content: baseline;
 }
+
 #music-text {
   color: rgb(96, 228, 30);
   margin-top: 20px;
@@ -19,10 +21,12 @@
 a {
   text-decoration: none;
 }
+
 p {
   color: rgb(96, 228, 30);
   font-family: "Press Start 2P", cursive;
 }
+
 button {
   color: rgba(96, 228, 30, 0.5);
   font-family: "Press Start 2P", cursive;
@@ -30,38 +34,43 @@ button {
   margin-right: 10px;
   border-radius: 50%;
 }
+
 button:hover {
   color: rgb(96, 228, 30);
   transform: scale(1.1);
   transition: 0.5s ease-in-out;
   cursor: pointer;
 }
+
 .start-game {
   display: none;
   padding: 30px;
 }
+
 .reset-game {
   display: none;
 }
+
 .livesp {
   display: none;
   margin-top: 30px;
 }
+
 .scorep {
   display: none;
   margin-top: 30px;
 }
+
 .mission-brief {
   display: flex;
   justify-content: center;
 }
+
 .mission {
-  margin-top: 200px;
+  margin-top: 250px;
   padding: 30px;
 }
-/* .start-game {
-  padding: 30px;
-} */
+
 i {
   color: rgb(96, 228, 30);
   margin-top: 10px;
@@ -71,28 +80,18 @@ i:hover {
   transform: scale(1.1);
   transition: 0.4s ease-in;
   transition: 0.4s ease-out;
+  cursor: pointer;
 }
 
 body {
   max-height: 100vh;
   margin: 0;
-  /* background-color: black; */
 }
-/* .video {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  margin: 0;
-} */
 
 video {
   position: fixed;
   top: 0;
-  /* width: 100%; */
   min-height: 120%;
-  /* height: 100%; */
   z-index: -1;
   margin: 0;
 }
@@ -116,18 +115,12 @@ h1 {
   animation: pulse 4s infinite;
 }
 .headers {
-  /* margin: auto; */
-  /* margin-left: 80px; */
-  /* margin: 0 auto; */
-  /* margin-right: 10px; */
   margin-top: 20px;
   display: flex;
   text-align: center;
   justify-content: space-evenly;
   flex-direction: row;
-  /* max-width: 900px; */
   margin-bottom: 20px;
-  /* align-content: space-between; */
 }
 
 .score {
@@ -136,11 +129,9 @@ h1 {
 main {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
 }
 
 .intro {
-  /* display: none; */
   margin: 0 auto;
   margin-top: 40px;
   display: flex;
@@ -149,51 +140,7 @@ main {
   max-width: 800px;
 }
 
-/* .intro p {
-  line-height: 1.6;
-  border-right: solid 3px rgba(0, 255, 0, 0.75);
-  white-space: nowrap;
-  overflow: hidden;
-} */
-
-/* .intro p:nth-child(2) {
-  animation-delay: 2s;
-}
-
-.intro p:nth-child(3) {
-  animation-delay: 4s;
-}
-
-.intro p:nth-child(4) {
-  animation-delay: 6s;
-}
-
-.intro p:nth-child(5) {
-  animation-delay: 8s;
-}
-
-.intro p:nth-child(6) {
-  animation-delay: 10s;
-}
-
-.intro p:nth-child(7) {
-  animation-delay: 12s;
-}
-
-.intro p:nth-child(8) {
-  animation-delay: 14s;
-}
-
-.intro p:nth-child(9) {
-  animation-delay: 16s;
-}
-
-.intro p:nth-child(10) {
-  animation-delay: 18s;
-} */
-
 .grid-wrapper {
-  /* height: 50vh; */
   background-image: url("https://i.imgur.com/jUP9q6P.jpg");
   background-size: 100%;
   background-position: center;
@@ -205,10 +152,6 @@ main {
   margin: 0 auto;
 }
 
-/* .gridbackdrop { */
-/* background-color: rgb(42, 138, 221); */
-/* } */
-
 .grid-pre {
   margin-top: 35px;
 }
@@ -216,17 +159,12 @@ main {
 .grid {
   display: flex;
   flex-wrap: wrap;
-  /* height: 400px; */
   width: 600px;
-  /* background-color: black; */
-  /* box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2); */
 }
 
 .grid div {
   width: calc(100% / 13);
   height: 46.14px;
-  /* border: 1px solid rgba(0, 0, 0, 0.2);
-  background-color: black; */
   color: white;
 }
 
@@ -239,11 +177,9 @@ main {
 
 .alien {
   background-image: url("https://i.imgur.com/UEax6GP.png");
-  /* background-color: red; */
   background-size: 110%;
   background-position: center;
   background-repeat: no-repeat;
-  /* border-radius: 25%; */
 }
 
 .missile {
@@ -267,31 +203,20 @@ main {
   background-repeat: no-repeat;
   transform: rotate(180deg);
 }
-/* 
-.intro p {
-  animation: animated-text 7s steps(40) 1s 1 normal both,
-    animated-cursor 600ms steps(29) infinite;
-
-} */
 
 .post-game {
   display: none;
   margin-top: 100px;
   text-align: center;
 }
-/* text animation */
 
-/* @keyframes animated-text {
-  from {
-    width: 0;
-  }
-  to {
-    width: 90%;
-  }
-} */
-.cursor {
+.intro p span {
   border-right: solid 3px rgba(0, 255, 0, 0.75);
   animation: animated-cursor 600ms steps(29) infinite;
+}
+
+.verdict {
+  padding: 50px;
 }
 /* cursor animations */
 

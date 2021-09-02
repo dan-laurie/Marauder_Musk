@@ -7,16 +7,16 @@ body {
   width: 100%;
   margin: 0 auto;
 }
+
 img {
   width: 500px;
   animation: shake 0.9s infinite;
 }
+
 video {
   position: fixed;
   top: 0;
-  /* width: 100%; */
   min-height: 120%;
-  /* height: 100%; */
   z-index: -1;
   margin: 0;
 }
@@ -36,6 +36,7 @@ video {
   margin-left: 50px;
   justify-content: baseline;
 }
+
 #music-text {
   color: rgb(96, 228, 30);
   margin-top: 20px;
@@ -44,6 +45,7 @@ video {
   font-family: "Press Start 2P", cursive;
   animation: pulse 5s infinite;
 }
+
 i {
   color: rgb(96, 228, 30);
   margin-top: 10px;
@@ -53,6 +55,7 @@ i:hover {
   transform: scale(1.1);
   transition: 0.4s ease-in;
   transition: 0.4s ease-out;
+  cursor: pointer;
 }
 
 h1 {
@@ -60,16 +63,11 @@ h1 {
   font-size: 80px;
   animation: pulse 4s infinite;
 }
-/* #stars {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
-} */
+
 a {
   text-decoration: none;
 }
+
 #link {
   font-family: "Press Start 2P", cursive;
   text-decoration: none;
@@ -78,9 +76,6 @@ a {
 #link:hover {
   animation: rotate 0.2s linear;
 }
-/* div {
-  background-image: url(./assets/videos/Stars.mp4);
-} */
 
 .post-game {
   display: none;

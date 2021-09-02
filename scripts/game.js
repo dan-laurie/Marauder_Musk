@@ -1,10 +1,7 @@
 function init() {
   const muteButton = document.getElementById('mute')
-
-  // const introMusic = document.getElementsByClassName('.intro-beat')
   const audio = new Audio('assets/sounds/Perturbator - Complete Domination (feat. Carpenter Brut).mp3')
-  // let isPlaying = false;
-
+  
   // toggles game music for both pages. 
   function togglePlay(event) {
     if (audio.paused) {
@@ -25,7 +22,6 @@ function init() {
   const scoreP = document.querySelector('.scorep')
   const livesP = document.querySelector('.livesp')
   const missionBrief = document.querySelector('.mission')
-  // const missionBriefDiv = document.querySelector('.mission-brief')
   const postGame = document.querySelector('.post-game')
   const introDiv = document.querySelector('.intro')
 
@@ -36,7 +32,6 @@ function init() {
   intro.forEach(p => {
     introText.push(p.innerText)
     p.innerText = ''
-    // p.classList.remove('invisible')
   })
   
 
@@ -46,7 +41,6 @@ function init() {
     morseCodeAudio.volume = 0.1
     morseCodeAudio.play()
     missionBrief.style.display = 'none'
-    // intro.style.display = 'block'
     let line = 0
     let i = 0
     let split = introText[line].split('')
@@ -65,13 +59,10 @@ function init() {
         i++
       } else {
         i = 0
-        // introText[line].classList.remove('cursor')
         line++
         clearInterval(introInterval)
-        if (introText[line]){
-        
+        if (introText[line]){ 
           split = introText[line].split('')
-          // introText[line].classList.add('cursor')
           introInterval = setInterval(intInterval, 50)
         }
       }
@@ -79,12 +70,10 @@ function init() {
     
   }
 
-  // const missionStart = setTimeout(startIntro, 20)
   missionBrief.addEventListener('click', startIntro)
 
   //game starts here when called
   function gameStart() {
-    // morseCodeAudio.pause()
     resetButton.style.display = 'block'
     scoreP.style.display = 'block'
     livesP.style.display = 'block'
@@ -93,17 +82,12 @@ function init() {
     function gameReset() {
       location.reload()
       postGame.style.display = 'none'
-      // gameStart()
     }
 
     function turnOffButton() {
 
       startButton.setAttribute('disabled', '')
-
-
     }
-
-
 
     // Elements
     const grid = document.querySelector('.grid')
@@ -119,20 +103,17 @@ function init() {
     const resultText = document.querySelector('.result')
     const verdict = document.querySelector('.verdict')
     const aliensDestroyed = []
-    const aliens = [2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 16, 17, 18, 19, 20, 21, 22, 23, 28, 29, 30, 31, 32, 33, 34, 35, 36]
-      
+    const aliens = [2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 16, 17, 18, 19, 20, 21, 22, 23, 28, 29, 30, 31, 32, 33, 34, 35, 36] 
     const alienClassName = 'alien'//define the css class of the aliens
-    const muskClassName = 'musk' // Define the css class for the character
-    // const missileClassName = 'missile'
+    const muskClassName = 'musk' // Define the css class for the character 
     const startingPosition = 188 // Cell position for the start of the game
       
     let currentPosition = startingPosition // Current position which is updated on every move
     let indexShift = 1
-    // const missileStart = currentPosition -= width
+  
     let lives = 3
     let score = 0
     let moveRight = true
-    // const aliens = [,]
     scoreDisplay.innerText = 0
     livesDisplay.innerText = 3
     // Executions
@@ -167,8 +148,6 @@ function init() {
 
     // Add Musk
     function addMusk(cellPosition) {
-      // console.log('Cell position for addCat ->', cellPosition)
-      // console.log('Cell at cellPosition ->', cells[cellPosition])
       cells[cellPosition].classList.add(muskClassName) // Find cell in cells array using passed in position, and add class
     }
     // Remove Musk
@@ -233,27 +212,7 @@ function init() {
       for (let i = 0; i < aliens.length; i++) {
         aliens[i] += indexShift
       }
-
-
       addAliens()
-      // setInterval(mobiliseAliens, 2000)
-
-      //? IF ALIENS REACH ELON, GAME OVER, F in the chat etc......
-      // function gameOver(){
-          
-      // }
-      // if (cells[currentPosition].classList.contains(alienClassName, muskClassName)) {
-      //   grid.style.display = 'none'
-      //   postGame.style.display = 'block'
-      //   finalScore.innerText = `Your final score is: ${score}`
-      //   clearInterval(alienAdvance)
-      //   clearInterval(bombTick)
-      //   window.confirm('GAME OVER, YOU FAILED TO PROTECT THE COLONY')
-      // } 
-      // if (gameOver()){
-      //   gameReset()
-      // }
-
     }
     const alienAdvance = setInterval(mobiliseAliens, 400)
       
@@ -277,8 +236,7 @@ function init() {
             cells[currentMissilePosition].classList.remove('missile')
             cells[currentMissilePosition].classList.remove('alien')
             cells[currentMissilePosition].classList.add('bang')
-            // alienAudio.play()
-            
+
             setTimeout(() => cells[currentMissilePosition].classList.remove('bang'), 300)
             clearInterval(missileTimer)
 
@@ -293,8 +251,6 @@ function init() {
         }
       }
       if (event.keyCode === 32){
-        // const audio = new Audio('assets/sounds/RPG FX.wav')
-        // audio.play()
         missileTimer = setInterval(fireMissile, 100)
       } 
     }
@@ -343,7 +299,7 @@ function init() {
             grid.style.display = 'none'
             postGame.style.display = 'block'
             resultText.innerText = 'GAME OVER'
-            verdict.innerText = 'The Andromedans destroyed your chariot. You failed to defend Nüwa'
+            verdict.innerText = 'The Andromedans destroyed your chariot. And have invaded Nüwa'
             finalScore.innerText = `Your final score is: ${score}`
             clearInterval(alienAdvance)
             clearInterval(bombTick)
@@ -356,12 +312,11 @@ function init() {
             grid.style.display = 'none'
             postGame.style.display = 'block'
             resultText.innerText = 'GAME OVER'
-            verdict.innerText = 'The Andromedans have invaded Nüwa'
+            verdict.innerText = 'The Andromedans landed on the Martian surface and invaded Nüwa'
             finalScore.innerText = `Your final score is: ${score}`
             clearInterval(alienAdvance)
             clearInterval(bombTick)
             clearInterval(bombFreq)
-            // window.confirm('GAME OVER, YOU FAILED TO PROTECT THE COLONY')
           } 
           // END GAME SCENARIO 3 (VICTORY BY SUCCESSFUL DEFENSE)
           const victoryFanfare = new Audio('assets/sounds/Chinese Film Administration Screen.mp3')
@@ -371,12 +326,11 @@ function init() {
             grid.style.display = 'none'
             postGame.style.display = 'block'
             resultText.innerText = 'VICTORY!'
-            verdict.innerText = 'You have succesfully defended Nüwa'
+            verdict.innerText = 'You have succesfully defended the city Nüwa, you live to fight another day'
             finalScore.innerText = `Your final score is: ${score}`
             clearInterval(alienAdvance)
             clearInterval(bombTick)
             clearInterval(bombFreq)
-            // window.confirm('GAME OVER, YOU FAILED TO PROTECT THE COLONY')
           } 
     
           setTimeout(() => cells[bombPosition].classList.remove('bang'), 300)
@@ -388,7 +342,6 @@ function init() {
         
     }
         
-
     //now setting an interval so the above code block can be executed at a random delay between 500-3000ms
     const bombFreq = setInterval(bombDrop, 1000)
     function bombTimer() {
