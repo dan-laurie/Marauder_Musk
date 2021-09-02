@@ -34,7 +34,31 @@ button:hover {
   color: rgb(96, 228, 30);
   transform: scale(1.1);
   transition: 0.5s ease-in-out;
+  cursor: pointer;
 }
+.start-game {
+  display: none;
+}
+.reset-game {
+  display: none;
+}
+.livesp {
+  display: none;
+}
+.scorep {
+  display: none;
+}
+.mission-brief {
+  display: flex;
+  justify-content: center;
+}
+.mission {
+  margin-top: 200px;
+  padding: 30px;
+}
+/* .start-game {
+  padding: 30px;
+} */
 i {
   color: rgb(96, 228, 30);
   margin-top: 10px;
@@ -113,6 +137,7 @@ main {
 }
 
 .intro {
+  /* display: none; */
   margin: 0 auto;
   margin-top: 40px;
   display: flex;

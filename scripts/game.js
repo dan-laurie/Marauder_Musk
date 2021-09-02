@@ -22,12 +22,15 @@ function init() {
   muteButton.addEventListener('click', togglePlay)
   const startButton = document.querySelector('.start-game')
   const resetButton = document.querySelector('.reset-game')
-
+  const scoreP = document.querySelector('.scorep')
+  const livesP = document.querySelector('.livesp')
+  const missionBrief = document.querySelector('.mission')
+  // const missionBriefDiv = document.querySelector('.mission-brief')
   const postGame = document.querySelector('.post-game')
   const introDiv = document.querySelector('.intro')
 
   const intro = document.querySelectorAll('.intro p')
-
+  const morseCodeAudio = new Audio('assets/sounds/Morse Code.wav') 
   const introText = []
 
   intro.forEach(p => {
@@ -35,15 +38,23 @@ function init() {
     p.innerText = ''
     // p.classList.remove('invisible')
   })
+  
+
 
   function startIntro(){
+    startButton.style.display = 'block'
+    morseCodeAudio.volume = 0.1
+    morseCodeAudio.play()
+    missionBrief.style.display = 'none'
+    // intro.style.display = 'block'
     let line = 0
     let i = 0
     let split = introText[line].split('')
-    let introInterval = setInterval(intInterval, 50)
+    let introInterval = setInterval(intInterval, 35)
     let lastWasSpace = false
 
     function intInterval(){
+      
       if (split[i] && introText[line]){
         if (split[i] === ' '){
           lastWasSpace = true
@@ -58,6 +69,7 @@ function init() {
         line++
         clearInterval(introInterval)
         if (introText[line]){
+        
           split = introText[line].split('')
           // introText[line].classList.add('cursor')
           introInterval = setInterval(intInterval, 50)
@@ -67,10 +79,15 @@ function init() {
     
   }
 
-  setTimeout(startIntro, 20)
+  // const missionStart = setTimeout(startIntro, 20)
+  missionBrief.addEventListener('click', startIntro)
 
   //game starts here when called
   function gameStart() {
+    
+    resetButton.style.display = 'block'
+    scoreP.style.display = 'block'
+    livesP.style.display = 'block'
     introDiv.style.display = 'none'
 
     function gameReset() {
