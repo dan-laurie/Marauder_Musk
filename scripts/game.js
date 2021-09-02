@@ -5,7 +5,7 @@ function init() {
   const audio = new Audio('assets/sounds/Perturbator - Complete Domination (feat. Carpenter Brut).mp3')
   // let isPlaying = false;
 
-  // toggles game music for both pages. The only way to get around the autoplay law it seems.
+  // toggles game music for both pages. 
   function togglePlay(event) {
     if (audio.paused) {
       event.target.classList.remove('fa-volume-mute')
@@ -84,7 +84,7 @@ function init() {
 
   //game starts here when called
   function gameStart() {
-    
+    // morseCodeAudio.pause()
     resetButton.style.display = 'block'
     scoreP.style.display = 'block'
     livesP.style.display = 'block'

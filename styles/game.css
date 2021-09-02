@@ -301,7 +301,7 @@ main {
   }
 }
 
-/* H1 anitmation */
+/* H1 animation */
 @keyframes pulse {
   0% {
     transform: scale(1);
