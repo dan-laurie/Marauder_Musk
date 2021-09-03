@@ -342,12 +342,10 @@ function init() {
         
     }
         
-    //now setting an interval so the above code block can be executed at a random delay between 500-3000ms
+ 
     const bombFreq = setInterval(bombDrop, 1000)
     function bombTimer() {
-      const randomTime = Math.round(Math.random() * (3000 - 500)) + 500
       bombFreq
-      console.log(randomTime)
     }
 
     bombTimer()
