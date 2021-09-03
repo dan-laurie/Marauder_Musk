@@ -349,7 +349,6 @@ function init() {
     }
 
     bombTimer()
-
     createGrid(startingPosition)
     turnOffButton()
     resetButton.addEventListener('click', gameReset)
