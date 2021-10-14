@@ -10,7 +10,7 @@ Named "Marauder_Musk", this game is set in 2066, after Elon Musk's successful co
 
 Using the base rules of the original game, the objective is simple. Defend Nüwa by clearing the Andromedan armada, be defeated by the armada or face a successful invasion, the last two resulting in a game loss.
 
-The game can be viewed/played at: https://dan-laurie.github.io/SEI-Project-1/
+The game can be viewed/played at: https://dan-laurie.github.io/Marauder_Musk/
 
 ## Controls
 
